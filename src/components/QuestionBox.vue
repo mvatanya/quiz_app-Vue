@@ -13,19 +13,22 @@
           {{ answer }}
         </b-list-group-item>
       </b-list-group>
-      <b-button 
-        variant="primary" 
-        @click="submitAnswer"
-        :disabled="selectedIndex === null || answered"
-      >
-        Submit
-      </b-button>
-      <b-button 
-        @click="next" 
-        variant="success"
-      >
-        Next
-      </b-button>
+      <div class="buttons-container">
+        <b-button 
+          variant="primary" 
+          @click="submitAnswer"
+          :disabled="selectedIndex === null || answered"
+        >
+          Submit
+        </b-button>
+        <b-button 
+          @click="next" 
+          variant="success"
+          :disabled="!answered"
+        >
+          Next
+        </b-button>
+      </div>
     </b-jumbotron>
   </div>
 </template>
@@ -106,6 +109,12 @@ export default {
 </script>
 
 <style scoped>
+  .question-box-container {
+    margin-top: 30px
+  }
+  .buttons-container {
+    margin-top: 30px;
+  }
   .list-group {
     margin-bottom: 15px;
   }
